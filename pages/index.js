@@ -82,20 +82,31 @@ function BlogIndexCategoryButton({
 }) {
   const color = getColorFromCategory(category);
 
-  const nonselectedClasses = `bg-${color}-900 text-${color}-400 hover:bg-${color}-700 hover:text-white border-${color}-400`;
-  let selectedClasses = `bg-${color}-400 text-white border-${color}-400`;
-  if (color === "red") {
-    selectedClasses = `bg-${color}-600 text-white border-${color}-400`;
+  const colorMap = {
+    red: {
+      selected: 'bg-red-600 text-white border-red-400',
+      nonselected: 'bg-red-900 text-red-400 hover:bg-red-700 hover:text-white border-red-400'
+    },
+    indigo: {
+      selected: 'bg-indigo-400 text-white border-indigo-400',
+      nonselected: 'bg-indigo-900 text-indigo-400 hover:bg-indigo-700 hover:text-white border-indigo-400'
+    },
+    green: {
+      selected: 'bg-green-400 text-white border-green-400',
+      nonselected: 'bg-green-900 text-green-400 hover:bg-green-700 hover:text-white border-green-400'
+    }
   }
+
+  const colorClasses = colorMap[color];
 
   const baseClasses = "border mr-6 shadow-xl text-3xl px-4 rounded-sm";
 
   let buttonClasses;
 
   if (category === selectedCategory) {
-    buttonClasses = [baseClasses, selectedClasses].join(" ");
+    buttonClasses = [baseClasses, colorClasses.selected].join(" ");
   } else {
-    buttonClasses = [baseClasses, nonselectedClasses].join(" ");
+    buttonClasses = [baseClasses, colorClasses.nonselected].join(" ");
   }
 
   return (
@@ -110,7 +121,16 @@ function BlogIndexCategoryButton({
 
 function BlogIndexArticle({ article }) {
   const color = getColorFromCategory(article.category);
-  const tagClassString = `text-sm font-medium text-white self-start bg-${color}-600 rounded-lg px-2`;
+  let tagClassString = 'text-sm font-medium text-white self-start rounded-lg px-2';
+
+  const colorClasses = {
+    red: 'bg-red-600',
+    indigo: 'bg-indigo-600',
+    green: 'bg-green-600'
+  }
+
+  tagClassString = [tagClassString, colorClasses[color]].join(' ')
+
   const link = `/blog/${article.slug}`;
 
   return (
