@@ -3,12 +3,14 @@ title: Fellini and Forgiveness
 published: true
 description: Scattered thoughts on old movies I didn't watch
 category: Personal
-tags: fellini, forgiveness
+tags:
+ - fellini
+ - forgiveness
 image: https://knox.villagesoup.com/media/Common/CourierPublications/2015/8/18/1570987/vitelloni2.jpg
 date: "2020-02-26"
 ---
 
-I “watched” a movie yesterday:_I Vitelloni_ by Federico Fellini. I’m obliged to put “watched” in quotes here because watching is a strong word to describe what happens when a movie in a language you don’t speak plays on a screen behind you. Without actively looking up from what I was working on to read the subtitles — in my case a twice-hourly occurrence — it’s hard to write an actual review of the movie, as I’m certain there are many major and minor details that escaped me. 
+I “watched” a movie yesterday: _I Vitelloni_ by Federico Fellini. I’m obliged to put “watched” in quotes here because watching is a strong word to describe what happens when a movie in a language you don’t speak plays on a screen behind you. Without actively looking up from what I was working on to read the subtitles — in my case a twice-hourly occurrence — it’s hard to write an actual review of the movie, as I’m certain there are many major and minor details that escaped me. 
 
 My impression was that most of the movie revolved around the character Fausto and his wife Sandra, both naive in their own ways. Fausto seemed oblivious to the consequences of his womanizing, while Sandra appeared hopelessly fixated on a vision of marital fulfillment that never materialized. 
 

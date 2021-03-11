@@ -36,3 +36,41 @@
 html {
   overflow-y: scroll;
 }
+
+.mww {
+  @apply font-body text-gray-300 text-lg;
+}
+
+.mww p {
+  @apply mb-4 max-w-lg mx-auto;
+
+  word-spacing: 0.15em;
+}
+
+.mww a {
+  @apply text-blue-500 underline;
+}
+  
+.mww h1, .mww h2, .mww h3, .mww h4, .mww h5, .mww h6 {
+  @apply max-w-lg mx-auto font-heading;
+}
+
+.mww h2 {
+  @apply text-2xl mt-8 mb-4;
+}
+
+.mww ul, .mww ol {
+  @apply max-w-lg mx-auto list-inside pl-4 mb-4;
+}
+
+.mww li {
+  @apply mb-2
+}
+
+.mww ul {
+  @apply list-disc;
+}
+
+.mww ol {
+  @apply list-decimal;
+}

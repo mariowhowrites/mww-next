@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { getAllPosts } from "../lib/api";
 import { getColorFromCategory } from "../utils";
+import Layout from "../components/layout";
 
 export default function Blog({ articles }) {
   const [selectedCategory, setSelectedCategory] = useState(null);
@@ -18,29 +19,29 @@ export default function Blog({ articles }) {
     new Set(articles.map(({ category }) => category))
   );
 
-  let filteredArticles
+  let filteredArticles;
 
   if (selectedCategory === null) {
-    filteredArticles = articles
+    filteredArticles = articles;
   } else {
     filteredArticles = articles.filter(
       ({ category }) => category === selectedCategory
-    )
+    );
   }
 
   return (
-    <div className="relative bg-gray-800 min-h-screen pt-16 pb-20 px-4 sm:px-6 lg:pt-24 lg:pb-28 lg:px-8">
-      <div className="relative max-w-7xl mx-auto">
-        <div className="text-center">
-          <h2 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl">
-            MarioWhoWrites
-          </h2>
-          <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4 font-body">
-            Words about various subjects.
-          </p>
-        </div>
-        <aside id="CategorySelect" className="max-w-lg mx-auto mt-8 mb-12 flex">
-          {categories && categories.map((category) => (
+    <Layout>
+      <div className="text-center mt-12 md:mt-0">
+        <h2 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl">
+          MarioWhoWrites
+        </h2>
+        <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4 font-body">
+          Words about various subjects.
+        </p>
+      </div>
+      <aside id="CategorySelect" className="max-w-lg mx-auto mt-8 mb-12 flex">
+        {categories &&
+          categories.map((category) => (
             <BlogIndexCategoryButton
               key={category}
               category={category}
@@ -48,33 +49,30 @@ export default function Blog({ articles }) {
               onSelectCategory={onSelectCategory}
             />
           ))}
-        </aside>
-        <div className="mt-12 max-w-lg mx-auto flex flex-col">
-          {filteredArticles.map(article => (
-            <BlogIndexArticle
-              key={article.title}
-              article={article}
-            />
-          ))}
-        </div>
+      </aside>
+      <div className="mt-12 max-w-lg mx-auto flex flex-col">
+        {filteredArticles.map((article) => (
+          <BlogIndexArticle key={article.title} article={article} />
+        ))}
       </div>
-    </div>
+    </Layout>
   );
 }
 
 export async function getStaticProps() {
   const articles = getAllPosts([
-    'title',
-    'description',
-    'category',
-    'tags',
-    'image',
-    'date'
+    "title",
+    "description",
+    "category",
+    "tags",
+    "image",
+    "date",
+    "slug",
   ]);
 
   return {
-    props: { articles }
-  }
+    props: { articles },
+  };
 }
 
 function BlogIndexCategoryButton({
@@ -113,6 +111,7 @@ function BlogIndexCategoryButton({
 function BlogIndexArticle({ article }) {
   const color = getColorFromCategory(article.category);
   const tagClassString = `text-sm font-medium text-white self-start bg-${color}-600 rounded-lg px-2`;
+  const link = `/blog/${article.slug}`;
 
   return (
     <article className="flex flex-col overflow-hidden">
@@ -127,7 +126,7 @@ function BlogIndexArticle({ article }) {
       </div>
       <div className="flex-1 py-6 flex flex-col justify-between">
         <div className="flex-1 flex flex-col">
-          <a href="#" className="block my-2">
+          <a href={link} className="block my-2">
             <h2 className="text-xl font-semibold font-heading text-white">
               {article.title}
             </h2>

@@ -3,7 +3,11 @@ title: Snake Saga - Building a Game with Redux Generators
 published: true
 description: In which we learn generators by using React, Redux and Redux Saga to build a clone of Snake
 category: Technical
-tags: react, redux, redux-saga, frontend
+tags: 
+ - react
+ - redux
+ - redux-saga
+ - frontend
 image: https://images.unsplash.com/photo-1558220168-42cbb39df876?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80
 date: "2019-07-23"
 ---
@@ -180,4 +184,3 @@ We see that `watchPosition` has a nearly identical structure to `watchFruitColle
 From there, however, a more complex series of events takes place. Using helper methods, this generator checks on various game conditions, such as whether the snake has collided with itself or collected a fruit.
 
 Would it make sense to handle the fruit collection logic within the position reducer? To me, the answer is no. By delegating all of the effect work to sagas, each of my reducer cases maxes out at around five lines of code. I can add as much functionality into this `watchPosition` generator as I want without needing to change the basic mechanics of how my snake moves across the board. And because `put` and `select` return simple JavaScript objects, all of this code can be easily tested by starting and iterating our sagas manually, much like we did with `loopSayings` in the intro to generators.
-x
