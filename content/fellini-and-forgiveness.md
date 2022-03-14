@@ -6,7 +6,7 @@ category: Personal
 tags:
  - fellini
  - forgiveness
-image: https://knox.villagesoup.com/media/Common/CourierPublications/2015/8/18/1570987/vitelloni2.jpg
+image: /images/fellini.jpg
 date: "2020-02-26"
 ---
 
