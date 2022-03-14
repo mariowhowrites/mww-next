@@ -12,7 +12,7 @@ export default function Layout({ children }) {
       className={`relative bg-gray-800 min-h-screen pt-4 md:pt-16 pb-20 px-4 sm:px-6 lg:pt-${topPadding} lg:pb-28 lg:px-8`}
     >
       {!isHome && (
-        <nav class="mb-12">
+        <nav className="mb-12">
           <a
             className="tracking-tight font-extrabold font-heading text-white sm:text-2xl"
             href="/"

@@ -29,8 +29,8 @@ export default function Article({ article }) {
         <h1>Loading...</h1>
       ) : (
         <>
-          <main class="w-full md:w-2/3 mx-auto">
-            <h1 class="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl max-w-lg mx-auto">
+          <main className="w-full md:w-2/3 mx-auto">
+            <h1 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl max-w-lg mx-auto">
               {article.title}
             </h1>
             <p className="italic text-gray-500 mt-0 md:mt-3 max-w-lg mx-auto">{article.description}</p>
@@ -51,7 +51,7 @@ export default function Article({ article }) {
               alt={article.title}
             />
             <div
-              class="mww"
+              className="mww"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
           </main>
