@@ -1,12 +1,12 @@
 export function getColorFromCategory(category) {
   const categoryColorMap = {
     Personal: 'red',
-    Politics: 'green',
+    Reviews: 'green',
     Technical: 'indigo',
   }
 
   let color = 'green'
-  if (Object.keys(categoryColorMap).includes(category)) {
+  if (Object.keys(categoryColorMap).includes(cGategory)) {
     color = categoryColorMap[category]
   }
 
