@@ -46,7 +46,7 @@ export default function Article({ article }) {
               <p className="text-white">{readTime} minute read time</p>
             </aside>
             <img
-              className="h-72 w-full object-cover mb-8"
+              className="h-124 w-full object-cover mb-8"
               src={article.image}
               alt={article.title}
             />

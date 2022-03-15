@@ -6,7 +6,7 @@ export function getColorFromCategory(category) {
   }
 
   let color = 'green'
-  if (Object.keys(categoryColorMap).includes(cGategory)) {
+  if (Object.keys(categoryColorMap).includes(category)) {
     color = categoryColorMap[category]
   }
 
