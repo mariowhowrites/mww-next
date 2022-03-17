@@ -1,4 +1,4 @@
-export function getColorFromCategory(category) {
+export function getColorFromCategory(category: string) {
   const categoryColorMap = {
     Personal: 'red',
     Reviews: 'green',

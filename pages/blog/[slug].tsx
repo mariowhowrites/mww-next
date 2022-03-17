@@ -7,8 +7,14 @@ import Layout from "../../components/layout";
 import { getPostBySlug, getAllPosts } from "../../lib/api";
 import { getColorFromCategory } from "../../utils";
 import markdownToHtml from "../../lib/markdownToHtml";
+import { Article as ArticleType } from "../../lib/types";
+import { GetStaticPaths, GetStaticProps } from "next";
 
-export default function Article({ article }) {
+type ArticleProps = {
+  article: ArticleType
+}
+
+export default function Article({ article }: ArticleProps) {
   const router = useRouter();
   if (!router.isFallback && (!article || !article.slug)) {
     return <ErrorPage statusCode={404} />;
@@ -61,7 +67,7 @@ export default function Article({ article }) {
   );
 }
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = getPostBySlug(params.slug, [
     "title",
     "date",
@@ -84,7 +90,7 @@ export async function getStaticProps({ params }) {
   };
 }
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts(["slug"]);
 
   return {
