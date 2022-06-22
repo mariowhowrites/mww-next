@@ -40,7 +40,7 @@ export default function Article({ article }: ArticleProps) {
             <title>{article.title} - MarioWhoWrites</title>
             <meta property="og:title" content={article.title} />
             <meta property="og:description" content={article.description} />
-            <meta property="og:image" content={article.image} />
+            <meta property="og:image" content={window.location.origin + article.image} />
             <meta property="og:type" content="article" />
             <meta property="twitter:site" content="@mariowhowrites" />
             <meta property="twitter:creator" content="@mariowhowrites" />
