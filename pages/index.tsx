@@ -43,7 +43,7 @@ const Blog: NextPage<BlogProps> = ({ articles }) => {
           MarioWhoWrites
         </h2>
         <p className="mt-3 max-w-2xl mx-auto text-xl text-gray-500 sm:mt-4 font-body">
-          Words about various subjects
+          Words about various subjects!
         </p>
       </div>
       <aside id="CategorySelect" className="max-w-lg mx-auto mt-8 mb-12 flex">
