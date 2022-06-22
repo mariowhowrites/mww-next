@@ -1,5 +1,6 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
+import Head from 'next/head'
 import Prism from "prismjs";
 import { useEffect } from "react";
 
@@ -35,6 +36,15 @@ export default function Article({ article }: ArticleProps) {
         <h1>Loading...</h1>
       ) : (
         <>
+          <Head>
+            <title>{article.title} - MarioWhoWrites</title>
+            <meta property="og:title" content={article.title} />
+            <meta property="og:description" content={article.description} />
+            <meta property="og:image" content={article.image} />
+            <meta property="og:type" content="article" />
+            <meta property="twitter:site" content="@mariowhowrites" />
+            <meta property="twitter:creator" content="@mariowhowrites" />
+          </Head>
           <main className="w-full md:w-2/3 mx-auto">
             <h1 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl max-w-lg mx-auto">
               {article.title}
@@ -56,7 +66,7 @@ export default function Article({ article }: ArticleProps) {
               src={article.image}
               alt={article.title}
             />
-            <div
+            <article
               className="mww"
               dangerouslySetInnerHTML={{ __html: article.content }}
             />
