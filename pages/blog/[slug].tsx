@@ -43,6 +43,7 @@ export default function Article({ article, url }: ArticleProps) {
             <meta property="og:description" content={article.description} />
             <meta property="og:image" content={`https://mariowhowrites.com${article.image}`} />
             <meta property="og:type" content="article" />
+            <meta property="twitter:card" content="summary_large_image" />
             <meta property="twitter:site" content="@mariowhowrites" />
             <meta property="twitter:creator" content="@mariowhowrites" />
           </Head>
