@@ -41,7 +41,7 @@ export default function Article({ article, url }: ArticleProps) {
             <title>{article.title} - MarioWhoWrites</title>
             <meta property="og:title" content={article.title} />
             <meta property="og:description" content={article.description} />
-            <meta property="og:image" content={(window ?  window.location.origin : url) + article.image} />
+            <meta property="og:image" content={`https://mariowhowrites.com${article.image}`} />
             <meta property="og:type" content="article" />
             <meta property="twitter:site" content="@mariowhowrites" />
             <meta property="twitter:creator" content="@mariowhowrites" />
@@ -79,12 +79,6 @@ export default function Article({ article, url }: ArticleProps) {
     </Layout>
   );
 }
-
-export const getServerSideProps: GetServerSideProps = async ({ req }) => {
-  const url = `https://${req.headers.host}`;
-
-  return { props: { url } };
-};
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = getPostBySlug(params.slug, [
