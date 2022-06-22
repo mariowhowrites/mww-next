@@ -1,6 +1,6 @@
 import { useRouter } from "next/router";
 import ErrorPage from "next/error";
-import Head from 'next/head'
+import Head from "next/head";
 import Prism from "prismjs";
 import { useEffect } from "react";
 
@@ -9,13 +9,14 @@ import { getPostBySlug, getAllPosts } from "../../lib/api";
 import { getColorFromCategory } from "../../utils";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { Article as ArticleType } from "../../lib/types";
-import { GetStaticPaths, GetStaticProps } from "next";
+import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
 
 type ArticleProps = {
-  article: ArticleType
-}
+  article: ArticleType;
+  url: string;
+};
 
-export default function Article({ article }: ArticleProps) {
+export default function Article({ article, url }: ArticleProps) {
   const router = useRouter();
   if (!router.isFallback && (!article || !article.slug)) {
     return <ErrorPage statusCode={404} />;
@@ -40,7 +41,7 @@ export default function Article({ article }: ArticleProps) {
             <title>{article.title} - MarioWhoWrites</title>
             <meta property="og:title" content={article.title} />
             <meta property="og:description" content={article.description} />
-            <meta property="og:image" content={window.location.origin + article.image} />
+            <meta property="og:image" content={(window ?  window.location.origin : url) + article.image} />
             <meta property="og:type" content="article" />
             <meta property="twitter:site" content="@mariowhowrites" />
             <meta property="twitter:creator" content="@mariowhowrites" />
@@ -49,7 +50,9 @@ export default function Article({ article }: ArticleProps) {
             <h1 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl max-w-lg mx-auto">
               {article.title}
             </h1>
-            <p className="italic text-gray-500 mt-0 md:mt-3 max-w-lg mx-auto">{article.description}</p>
+            <p className="italic text-gray-500 mt-0 md:mt-3 max-w-lg mx-auto">
+              {article.description}
+            </p>
             <aside className="my-6 flex flex-col md:flex-row max-w-lg mx-auto">
               <div className="flex mb-2 md:md-0">
                 {article.tags &&
@@ -77,6 +80,12 @@ export default function Article({ article }: ArticleProps) {
   );
 }
 
+export const getServerSideProps: GetServerSideProps = async ({ req }) => {
+  const url = `https://${req.headers.host}`;
+
+  return { props: { url } };
+};
+
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const post = getPostBySlug(params.slug, [
     "title",
@@ -99,7 +108,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
       },
     },
   };
-}
+};
 
 export const getStaticPaths: GetStaticPaths = async () => {
   const posts = getAllPosts(["slug"]);
@@ -114,4 +123,4 @@ export const getStaticPaths: GetStaticPaths = async () => {
     }),
     fallback: false,
   };
-}
+};
