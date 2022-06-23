@@ -3,9 +3,7 @@
 }
 
 .mww p {
-  @apply mb-4 max-w-lg mx-auto;
-
-  word-spacing: 0.15em;
+  @apply mb-4 max-w-xl mx-auto;
 }
 
 .mww a {
@@ -13,7 +11,7 @@
 }
   
 .mww h1, .mww h2, .mww h3, .mww h4, .mww h5, .mww h6 {
-  @apply max-w-lg mx-auto font-heading;
+  @apply max-w-xl mx-auto font-heading;
 }
 
 .mww h2 {
@@ -21,11 +19,11 @@
 }
 
 .mww ul, .mww ol {
-  @apply max-w-lg mx-auto list-inside pl-4 mb-4;
+  @apply max-w-xl mx-auto list-outside pl-4 mb-4;
 }
 
 .mww li {
-  @apply mb-2;
+  @apply mb-2 pl-2;
 }
 
 .mww ul {
