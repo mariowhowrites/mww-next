@@ -16,7 +16,7 @@ type ArticleProps = {
   url: string;
 };
 
-export default function Article({ article, url }: ArticleProps) {
+export default function Article({ article }: ArticleProps) {
   const router = useRouter();
   if (!router.isFallback && (!article || !article.slug)) {
     return <ErrorPage statusCode={404} />;
@@ -49,13 +49,13 @@ export default function Article({ article, url }: ArticleProps) {
             <meta property="twitter:image" content={`https://mariowhowrites.com${article.image}`} />
           </Head>
           <main className="w-full md:w-2/3 mx-auto">
-            <h1 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl max-w-lg mx-auto">
+            <h1 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl max-w-xl mx-auto">
               {article.title}
             </h1>
-            <p className="italic text-gray-500 mt-0 md:mt-3 max-w-lg mx-auto">
+            <p className="italic text-gray-500 mt-0 md:mt-3 max-w-xl mx-auto">
               {article.description}
             </p>
-            <aside className="my-6 flex flex-col md:flex-row max-w-lg mx-auto">
+            <aside className="my-6 flex flex-col md:flex-row max-w-xl mx-auto">
               <div className="flex mb-2 md:md-0">
                 {article.tags &&
                   article.tags.map((tag) => (
