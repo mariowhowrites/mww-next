@@ -46,6 +46,7 @@ export default function Article({ article, url }: ArticleProps) {
             <meta property="twitter:card" content="summary_large_image" />
             <meta property="twitter:site" content="@mariowhowrites" />
             <meta property="twitter:creator" content="@mariowhowrites" />
+            <meta property="twitter:image" content={`https://mariowhowrites.com${article.image}`} />
           </Head>
           <main className="w-full md:w-2/3 mx-auto">
             <h1 className="text-3xl tracking-tight font-extrabold font-heading text-white sm:text-4xl max-w-lg mx-auto">
