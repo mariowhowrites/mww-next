@@ -210,7 +210,6 @@ const VARIANTS = [
         };
     };
 
-    // 1, 2, 3, 4, 5
     for (let variantIndex = 0; variantIndex < VARIANTS.length; variantIndex++) {
         for (
             let measurement = 1;
