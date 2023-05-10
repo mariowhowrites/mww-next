@@ -5,11 +5,12 @@ import Prism from "prismjs";
 import { useEffect } from "react";
 
 import Layout from "../../components/layout";
-import { getPostBySlug, getAllPosts } from "../../lib/api";
+import { getPostBySlug, getAllPosts } from "../../lib/api/blog";
 import { getColorFromCategory } from "../../utils";
 import markdownToHtml from "../../lib/markdownToHtml";
 import { Article as ArticleType } from "../../lib/types";
-import { GetServerSideProps, GetStaticPaths, GetStaticProps } from "next";
+import { GetStaticPaths, GetStaticProps } from "next";
+import DecklistComponent from "../../components/DecklistComponent";
 
 type ArticleProps = {
   article: ArticleType;
@@ -71,6 +72,9 @@ export default function Article({ article }: ArticleProps) {
               src={article.image}
               alt={article.title}
             />
+            {
+              article.decklist && <DecklistComponent decklist={article.decklist} />
+            }
             <article
               className="mww"
               dangerouslySetInnerHTML={{ __html: article.content }}

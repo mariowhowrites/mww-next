@@ -7,4 +7,5 @@ export interface Article {
   tags: string[];
   image?: string;
   date: string;
+  decklist?: string;
 }

@@ -3,6 +3,7 @@ export function getColorFromCategory(category: string) {
     Personal: 'red',
     Reviews: 'green',
     Technical: 'indigo',
+    Magic: 'amber',
   }
 
   let color = 'green'

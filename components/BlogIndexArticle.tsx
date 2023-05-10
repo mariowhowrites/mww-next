@@ -14,6 +14,7 @@ export function BlogIndexArticle({ article }: BlogIndexArticleProps) {
     red: "bg-red-600",
     indigo: "bg-indigo-600",
     green: "bg-green-600",
+    amber: "bg-amber-600",
   };
 
   tagClassString = [tagClassString, colorClasses[color]].join(" ");

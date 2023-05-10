@@ -29,6 +29,12 @@ export function BlogIndexCategoryButton({
       nonselected:
         "bg-green-900 text-green-400 hover:bg-green-700 hover:text-white border-green-400",
     },
+
+    amber: {
+      selected: "bg-amber-400 text-white border-amber-400",
+      nonselected:
+        "bg-amber-900 text-amber-400 hover:bg-amber-700 hover:text-white border-amber-400",
+    },
   };
 
   const colorClasses = colorMap[color];

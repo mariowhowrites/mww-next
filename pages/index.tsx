@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { getAllPosts } from "../lib/api";
+import { getAllPosts } from "../lib/api/blog";
 import Layout from "../components/layout";
 import { GetStaticProps, NextPage } from "next";
 import { Article } from "../lib/types";

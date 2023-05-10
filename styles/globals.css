@@ -1,3 +1,7 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 .mww {
   @apply font-body text-gray-300 text-lg;
 }
@@ -34,15 +38,12 @@
   @apply list-decimal;
 }
 
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
 @font-face {
   font-family: "Agrandir";
   font-weight: 400;
   src: url("./fonts/Agrandir-Regular.otf") format("opentype");
 }
+
 
 @font-face {
   font-family: "Agrandir";
